@@ -244,9 +244,8 @@ class GooglePlayAPI(object):
             params['service'] = 'ac2dm'
             params['add_account'] = '1'
             params['callerPkg'] = 'com.google.android.gms'
-            with requests.Session() as s:
-                s.headers = {'User-Agent': 'GoogleAuth/1.4'}
-                response = s.post(AUTH_URL,
+            self.session.headers = {'User-Agent': 'GoogleAuth/1.4'}
+            response = self.session.post(AUTH_URL,
                                  data=params,
                                  verify=ssl_verify,
                                  proxies=self.proxies_config)
@@ -290,9 +289,8 @@ class GooglePlayAPI(object):
         requestParams = self.deviceBuilder.getLoginParams(email, passwd)
         requestParams['service'] = 'androidmarket'
         requestParams['app'] = 'com.android.vending'
-        with requests.Session() as s:
-            s.headers = {'User-Agent': 'GoogleAuth/1.4', 'device':"{0:x}".format(self.gsfId)}
-            response = s.post(AUTH_URL,
+        self.session.headers = {'User-Agent': 'GoogleAuth/1.4', 'device':"{0:x}".format(self.gsfId)}
+        response = self.session.post(AUTH_URL,
                                 data=requestParams,
                                 verify=ssl_verify,
                                 proxies=self.proxies_config)
