@@ -50,3 +50,58 @@ a Google Service Framework ID (which, from now on, will be the android ID of you
 For the next logins you **should** save the gsfId and the authSubToken, and provide them as parameters
 to the login function. If you login again with email and password, this is the equivalent of
 re-initalizing your android device with a google account, invalidating previous gsfId and authSubToken.
+
+
+
+# Recommended Steps
+
+To make the program work, follow the steps below,
+
+```
+git clone https://github.com/marty0678/googleplay-api
+```
+
+```
+cd googleplay-api
+```
+
+```
+python3 -m venv .venv . .venv/bin/activate
+```
+
+```
+pip3 install -r requirements.txt
+```
+
+```
+pip3 install --upgrade protobuf
+```
+
+```
+python3 setup.py build
+```
+
+```
+pip3 install .
+```
+
+```
+python3 test/obb_download_test.py -e <email> -p <password>
+```
+
+# Problems met and Solutions
+
+### Bad Authentications
+
+Try going to Google account security tab, then go to the bottom of 2-step Authentication section to activate your app password
+
+### module 'urllib3.util.ssl_' has no attribute 'DEFAULT_CIPHERS'
+
+Try  command
+
+```
+python -m pip install requests urllib3<2 
+```
+
+
+
