@@ -52,6 +52,9 @@ class DeviceBuilder(object):
 
     def __init__(self, device):
         self.device = {}
+        name = config.get(device)
+        config
+        config.get(device)
         for (key, value) in config.items(device):
             self.device[key] = value
 
